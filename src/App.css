@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 :root {
   --theme-color: #0d5ef4;
   --text-color: #0f2339;
-  --body-color: #00306e;
+  --header-color: #00306e;
   --white-color: #fff;
+  --border-color: #ecf1f9;
 }
 
 .App-logo {
