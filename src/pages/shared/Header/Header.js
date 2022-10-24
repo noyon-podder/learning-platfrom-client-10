@@ -2,7 +2,6 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTwitter, FaUser, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.png'
@@ -11,7 +10,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <>
-    <div className="header ">
+    <div className="header">
       <Container>
         <div className="top-header py-3 d-flex justify-content-between align-items-center">
             {/* //top header left part start  */}
