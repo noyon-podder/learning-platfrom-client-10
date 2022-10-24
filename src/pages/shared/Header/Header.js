@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTwitter, FaUser, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.png';
 import "./Header.css";
 
 const Header = () => {
@@ -12,7 +12,8 @@ const Header = () => {
     <>
     <div className="header">
       <Container>
-        <div className="top-header py-3 d-flex justify-content-between align-items-center">
+        <div className='d-none .d-sm-block d-xl-block'>
+        <div className="top-header py-3 d-flex justify-content-between align-items-center ">
             {/* //top header left part start  */}
           <div className="left-part d-flex align-items-center">
             <div className="d-flex align-items-center">
@@ -46,7 +47,8 @@ const Header = () => {
            <Link to='/register'>Register</Link>
            </div>
           </div>
-        </div>       
+        </div>  
+        </div>     
         </Container>
         </div>
         <div className="bottom-header">

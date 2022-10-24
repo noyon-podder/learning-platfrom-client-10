@@ -1,15 +1,20 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import hero from "../../../assets/hero.png";
 import box from "../../../assets/shape/shape_2_1.png";
-import './MainHero.css'
+import line from "../../../assets/shape/shape_4_1.png";
+import water from "../../../assets/shape/shape_2_3.png";
+import './MainHero.css';
 const MainHero = () => {
   return (
     <div className="hero-section">
+        <img src={line} alt="" />
+        <img src={box} alt="" className="box-shape shape"/>
+        <img src={water} alt="" className="water-shape"/>
       <Row>
-        <Col lg="6" sm="12">
+        <Col lg={6}>
           <div className="hero-text">
             <span className="sub-title">MORE THAN 25,659+ STUDENTS</span>
             <h2 className="hero-title">
@@ -25,13 +30,13 @@ const MainHero = () => {
             </div>
 
             <div className="hero-button mt-5">
-                <Link to='/register'><button className="theme-button me-4">Register <FaArrowRight/></button></Link>
+                <Link to='/register'><button className="theme-button me-4 mb-3">Register <FaArrowRight/></button></Link>
                 <Link to='/courses'><button className="white-btn">Our Courses <FaArrowRight/></button></Link>
             </div>
           </div>
         </Col>
-        <Col lg="6" sm='12'>
-            <img src={box} alt="" className="box-shape shape"/>
+        <Col lg={6} className="d-none d-sm-block">
+            
           <div className="hero-image">
             <img src={hero} alt="" className="img-fluid" />
           </div>

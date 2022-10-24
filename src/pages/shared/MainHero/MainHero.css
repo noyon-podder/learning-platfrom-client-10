@@ -23,12 +23,17 @@
   height: 100%;
 }
 
-.hero-image .box-shape {
+.box-shape {
   position: absolute;
-  top: 50px;
-  right: 100px;
-  height: 80px;
-  width: 80px;
+  top: 40px;
+  right: 500px;
+  height: 100px;
+  width: 100px;
+}
+.water-shape {
+  position: absolute;
+  bottom: 80px;
+  left: 300px;
 }
 .hero-text .sub-title {
   font-size: 1rem;
