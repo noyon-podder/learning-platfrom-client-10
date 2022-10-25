@@ -1,0 +1,20 @@
+.course-title {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  border-bottom: 1px solid #ecf1f9;
+}
+.course-title:hover {
+  color: var(--theme-color);
+}
+.course-price {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 17px;
+  background-color: #f20f10;
+  border-radius: 30px;
+  color: #fff;
+}

@@ -61,11 +61,11 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className=" menu ms-auto">
-            <Nav.Link to="/home">Home</Nav.Link>
-            <Nav.Link to="/courses">Courses</Nav.Link>
-            <Nav.Link to="/blog">Blog</Nav.Link>
-            <Nav.Link to="/faq">FAQ</Nav.Link>
-            <Nav.Link to="/Contact">Contact</Nav.Link>
+            <Link to="/home">Home</Link>
+            <Link to="/courses">Courses</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/Contact">Contact</Link>
             
           </Nav>
           <Nav>

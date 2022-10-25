@@ -1,0 +1,8 @@
+.course-count {
+  color: var(--theme-color);
+}
+.course-header {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+}
