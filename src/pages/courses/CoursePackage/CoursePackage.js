@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
-import CourseSidebar from "../../courses/CourseSidebar/CourseSidebar";
-import CourseWrapper from "../../courses/CourseWrapper/CourseWrapper";
+import CourseSidebar from "../CourseSidebar/CourseSidebar";
+import CourseWrapper from "../CourseWrapper/CourseWrapper";
 import "./CoursePackage.css";
 const CoursePackage = () => {
   const courses = useLoaderData();
