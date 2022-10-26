@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../constext/UserContext';
 import './LoginForm.css';
 const LoginForm = () => {
-  
+  const {login} = useContext(AuthContext);
+  const [error, setError] = useState('');
+
         const handleSubmitForm = event => {
             event.preventDefault();
             const form = event.target;
             const email = form.email.value;
             const password = form.password.value;
-            console.log(email, password);
-    
+            
+            
+              login(email, password)
+              .then(result => {
+                form.reset();
+              })
+              .catch(error => {
+                setError(error.message)
+              })
+            
+           setError('')
+
         }
     
         return (
@@ -29,6 +42,9 @@ const LoginForm = () => {
               </Form.Group>
               <div className="mb-3">
               <span>If you are new to <Link to="/user/register">Create an account</Link> </span>
+              </div>
+              <div>
+              <span className="text-danger fw-bold">{error}</span>
               </div>
               <Button variant="primary" type="submit">
                 Login

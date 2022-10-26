@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../constext/UserContext';
 
 const RegisterForm = () => {
    const [error, setError] = useState('')
-
+   const {newUserCreate, userProfileUpdate} = useContext(AuthContext);
+    
     const handleSubmitForm = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,8 +17,27 @@ const RegisterForm = () => {
         const lastName = form.last.value;
         const photoURL = form.photo.value;
         const fullName = (`${firstName} ${lastName}`);
-        
+        const profile = {
+            displayName: fullName,
+            photoURL: photoURL
+        }
+       newUserCreate(email, password)
+       .then(result => {
+        console.log(result.user);
+        form.reset();
+        handleUserProfileUpdate(profile);
+       })
+       .catch(error => {
+        console.log(error.message)
+        setError(error.message);
+       })
+       setError('')
+    }
 
+    const handleUserProfileUpdate = (profile) => {
+        userProfileUpdate(profile)
+        .then()
+        .catch(error => setError(error.message))
     }
 
     return (
@@ -50,6 +71,9 @@ const RegisterForm = () => {
           </Form.Group>
           <div className="mb-3">
           <span>Already have an account <Link to="/user/login">Login</Link> </span>
+          </div>
+          <div>
+            <span className='text-danger fw-bold'>{error}</span>
           </div>
           <Button variant="primary" type="submit">
             Register

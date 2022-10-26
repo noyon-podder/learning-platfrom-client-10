@@ -1,13 +1,23 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Container } from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTwitter, FaUser, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.png';
+import { AuthContext } from "../../../constext/UserContext";
 import "./Header.css";
 
 const Header = () => {
+  const {user, logout} = useContext(AuthContext);
+
+     const handleLogOut = () => {
+      logout()
+      .then()
+      .catch(error => {
+        console.log(error.message)
+      })
+     }
   return (
     <>
     <div className="header">
@@ -41,11 +51,17 @@ const Header = () => {
             <FaInstagram className="icon me-3"/>
            </div>
            {/* user part start   */}
-           <div className="user">
+           {
+            !user?.uid ?
+            <div className="user">
            <FaUser className="me-3"/>
-           <Link to='/login'>Login</Link> /
-           <Link to='/register'>Register</Link>
+           <Link to='/user/login'>Login</Link> /
+           <Link to='/user/register'>Register</Link>
+           </div> :
+           <div>
+           <Button variant="light" className="text-primary fe-bold px-3" onClick={handleLogOut}>Logout</Button>
            </div>
+           }
           </div>
         </div>  
         </div>     
@@ -69,7 +85,8 @@ const Header = () => {
             
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            {user?.photoURL && <img src={user.photoURL} alt="" className="profile-pic"/> }
+           
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link>
