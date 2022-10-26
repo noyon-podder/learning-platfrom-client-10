@@ -67,7 +67,7 @@ const CourseDetails = () => {
             Paid : <span>{price}</span>
           </h3>
 
-         <button class="checkout-btn" >Checkout</button>
+        <Link to={`/course/checkout/${id}`}> <button class="checkout-btn" >Checkout</button></Link>
         
 
           <div className="course-feature">
