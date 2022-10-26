@@ -2,6 +2,9 @@
   background-color: var(--header-color);
   color: var(--white-color);
 }
+.bottom-header {
+  border-bottom: 1px solid #d3dbeb;
+}
 .left-part p {
   font-size: 1.2rem;
   margin: 0;
