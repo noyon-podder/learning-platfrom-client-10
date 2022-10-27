@@ -41,7 +41,7 @@ const Header = () => {
       <div className="header">
         <Container>
           <div className="d-none .d-sm-block d-xl-block">
-            <div className="top-header py-3 d-flex justify-content-between align-items-center ">
+            <div className="top-header py-2 d-flex justify-content-between align-items-center ">
               {/* //top header left part start  */}
               <div className="left-part d-flex align-items-center">
                 <div className="d-flex align-items-center">
