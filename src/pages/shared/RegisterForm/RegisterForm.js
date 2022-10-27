@@ -26,15 +26,13 @@ const RegisterForm = () => {
         const lastName = form.last.value;
         const photoURL = form.photo.value;
         const fullName = (`${firstName} ${lastName}`);
-        const profile = {
-            displayName: fullName,
-            photoURL: photoURL
-        }
+        
        newUserCreate(email, password)
        .then(result => {
         navigate('/')
         form.reset();
-        handleUserProfileUpdate(profile);
+        handleUserProfileUpdate(fullName, photoURL);
+        console.log(result.user);
        })
        .catch(error => {
         console.log(error.message)
@@ -43,7 +41,11 @@ const RegisterForm = () => {
        setError('')
     }
 
-    const handleUserProfileUpdate = (profile) => {
+    const handleUserProfileUpdate = (fullName, photoURL) => {
+      const profile = {
+        displayName: fullName,
+        photoURL : photoURL
+      }
         userProfileUpdate(profile)
         .then(result => {
           setUser(result.user)
