@@ -1,3 +1,4 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,10 +9,14 @@ import { AuthContext } from '../../../constext/UserContext';
 import './RegisterForm.css';
 
 const RegisterForm = () => {
+  const {setUser} = useContext(AuthContext);
    const [error, setError] = useState('')
   const navigate = useNavigate();
-   const {newUserCreate, userProfileUpdate} = useContext(AuthContext);
+   const {newUserCreate, userProfileUpdate, googleSignIn, githubSignIn} = useContext(AuthContext);
     
+   const googleProvider = new GoogleAuthProvider();
+   const githubProvider = new GithubAuthProvider();
+
     const handleSubmitForm = event => {
         event.preventDefault();
         const form = event.target;
@@ -45,9 +50,26 @@ const RegisterForm = () => {
     }
 
     const handleLoginWithIcon = () => {
-      console.log("i am clicked")
+      googleSignIn(googleProvider)
+      .then( (result) => {
+        navigate('/');
+        console.log(result.user);
+        setUser(result.user)
+      })
+      .catch(error => {
+        setError(error.message);
+      })
     }
     
+    const handleLoginWithGithub = () => {
+      githubSignIn(githubProvider)
+      .then(result => {
+        setUser(result.user)
+      })
+      .catch(error => {
+        setError(error.message)
+      })
+    }
 
     return (
        <div className="w-50 mx-auto mt-5 login-form">
@@ -94,7 +116,7 @@ const RegisterForm = () => {
           <div className="login-icon me-4" onClick={handleLoginWithIcon}>
             <img src={google} alt="" className="img-fluid"/>
           </div>
-          <div className="login-icon" onClick={handleLoginWithIcon}>
+          <div className="login-icon" onClick={handleLoginWithGithub}>
             <img src={github} alt="" className="img-fluid"/>
           </div>
         </div>
