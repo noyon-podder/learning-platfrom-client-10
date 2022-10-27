@@ -1,4 +1,3 @@
-import Faq from '../pages/FAQ/Faq'
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../pages/Blog/Blog";
 import Checkout from '../pages/courses/Checkout/Checkout';
@@ -6,6 +5,7 @@ import CourseDetails from "../pages/courses/CourDetails/CourseDetails";
 import CoursePackage from "../pages/courses/CoursePackage/CoursePackage";
 import Courses from "../pages/courses/Courses";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Faq from '../pages/FAQ/Faq';
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import LoginForm from "../pages/shared/LoginForm/LoginForm";
@@ -32,19 +32,19 @@ export const router = createBrowserRouter([
         {
           path: '/courses',
           element: <CoursePackage/>,
-          loader: () => fetch('http://localhost:5000/courses')
+          loader: () => fetch('https://madelearn-server.vercel.app/courses')
         },
         {
           path: '/courses/:id',
           element: <CourseDetails/>,
-          loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+          loader: ({params}) => fetch(`https://madelearn-server.vercel.app/courses/${params.id}`)
         },
       ]
     },
     {
       path: '/course/checkout/:id',
       element: <PrivateRoute><Checkout/></PrivateRoute>,
-      loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+      loader: ({params}) => fetch(`https://madelearn-server.vercel.app/courses/${params.id}`)
       
      },
     {
