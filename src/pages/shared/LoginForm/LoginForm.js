@@ -41,7 +41,7 @@ const LoginForm = () => {
           googleSignIn(googleProvider)
           .then( (result) => {
             setUser(result.user)
-            navigate('/');
+            navigate(from, { replace: true });
             console.log(result.user);
           })
           .catch(error => {
@@ -53,7 +53,7 @@ const LoginForm = () => {
           githubSignIn(githubProvider)
           .then(result => {
             setUser(result.user)
-            console.log(result.user)
+            navigate(from, { replace: true });
           })
           .catch(error => {
             setError(error.message)

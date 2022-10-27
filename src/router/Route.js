@@ -1,8 +1,11 @@
+import Faq from '../pages/FAQ/Faq'
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../pages/Blog/Blog";
 import Checkout from '../pages/courses/Checkout/Checkout';
 import CourseDetails from "../pages/courses/CourDetails/CourseDetails";
 import CoursePackage from "../pages/courses/CoursePackage/CoursePackage";
 import Courses from "../pages/courses/Courses";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import LoginForm from "../pages/shared/LoginForm/LoginForm";
@@ -12,15 +15,19 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 export const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home/>,      
+      element: <Home/>, 
+      errorElement: <ErrorPage/>,
+
     },
     {
       path: '/home',
-      element: <Home/>,      
+      element: <Home/>, 
+      errorElement: <ErrorPage/>,     
     },
     {
       path: '/courses',
       element: <Courses/>,
+      errorElement: <ErrorPage/>,
       children: [
         {
           path: '/courses',
@@ -43,6 +50,7 @@ export const router = createBrowserRouter([
     {
       path: '/user',
       element: <Login/>,
+      errorElement: <ErrorPage/>,
       children: [
         {
           path: '/user/login',
@@ -53,6 +61,14 @@ export const router = createBrowserRouter([
           element: <RegisterForm/>
         }
       ]
+    },
+    {
+      path: '/blog',
+      element: <Blog/>
+    },
+    {
+      path: '/faq',
+      element: <Faq/>
     }
 
 ])

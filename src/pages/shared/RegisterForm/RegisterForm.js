@@ -45,16 +45,17 @@ const RegisterForm = () => {
 
     const handleUserProfileUpdate = (profile) => {
         userProfileUpdate(profile)
-        .then()
+        .then(result => {
+          setUser(result.user)
+        })
         .catch(error => setError(error.message))
     }
 
     const handleLoginWithIcon = () => {
       googleSignIn(googleProvider)
       .then( (result) => {
-        navigate('/');
-        console.log(result.user);
         setUser(result.user)
+        navigate('/');
       })
       .catch(error => {
         setError(error.message);
@@ -65,6 +66,7 @@ const RegisterForm = () => {
       githubSignIn(githubProvider)
       .then(result => {
         setUser(result.user)
+        navigate('/');
       })
       .catch(error => {
         setError(error.message)

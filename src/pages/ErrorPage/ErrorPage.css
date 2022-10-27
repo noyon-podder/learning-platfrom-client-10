@@ -1,0 +1,15 @@
+.svg-image {
+  width: 200px;
+  height: 200px;
+}
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.home-rot{
+    text-decoration: none;
+    font-size: 30px;
+}

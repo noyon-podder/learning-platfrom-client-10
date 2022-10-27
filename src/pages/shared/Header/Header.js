@@ -20,10 +20,10 @@ import { AuthContext } from "../../../constext/UserContext";
 import "./Header.css";
 
 const Header = () => {
-  const { user, logout } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
   const target = useRef(null);
+  const {user, logout} = useContext(AuthContext);
 
   const handleLogOut = () => {
     logout()
@@ -109,16 +109,13 @@ const Header = () => {
                 <Link to="/courses">Courses</Link>
                 <Link to="/blog">Blog</Link>
                 <Link to="/faq">FAQ</Link>
-                <Link to="/Contact">Contact</Link>
               </Nav>
               <Nav className="d-flex align-items-center">
-                <div className="profile-pic">
-                {user?.photoURL && (
-                  <img
+                <div className="ms-5 " >
+                {user?.uid && (
+                  <img className="profile-pic"
                     src={user.photoURL}
-                    alt=""
-                    
-                    ref={target}
+                    alt=""ref={target}
                     onMouseOver ={() => setShow(!show)}
                   />
                 )}

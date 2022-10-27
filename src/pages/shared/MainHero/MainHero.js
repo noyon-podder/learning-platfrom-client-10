@@ -30,7 +30,7 @@ const MainHero = () => {
             </div>
 
             <div className="hero-button mt-5">
-                <Link to='/register'><button className="theme-button me-4 mb-3">Register <FaArrowRight/></button></Link>
+                <Link to='user/register'><button className="theme-button me-4 mb-3">Register <FaArrowRight/></button></Link>
                 <Link to='/courses'><button className="white-btn">Our Courses <FaArrowRight/></button></Link>
             </div>
           </div>
@@ -38,7 +38,7 @@ const MainHero = () => {
         <Col lg={6} className="d-none d-sm-block">
             
           <div className="hero-image">
-            <img src={hero} alt="" className="img-fluid" />
+            {/* <img src={hero} alt="" className="img-fluid" /> */}
           </div>
         </Col>
       </Row>

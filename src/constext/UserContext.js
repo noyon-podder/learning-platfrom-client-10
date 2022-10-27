@@ -10,24 +10,25 @@ const UserContext = ({children}) => {
 
     //new user create 
     const newUserCreate = (email, password) => {
-        setLoading(false);
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     } 
 
     // user profile update
     const userProfileUpdate = (profile) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
 
     //log out 
     const logout = () => {
-        setLoading(false)
+        setLoading(true)
         return signOut(auth);
     }
 
      // user login 
      const login = (email, password) => {
-        setLoading(false)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
      }
     

@@ -11,6 +11,7 @@ import {
   FaTag
 } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
 import "./CourseDetails.css";
 
 const CourseDetails = () => {
@@ -29,7 +30,7 @@ const CourseDetails = () => {
     quiz,
     id,
   } = courseDetails;
-
+  const ref = React.createRef();
   return (
     <div className="container">
       <Row className="g-5">
@@ -67,7 +68,7 @@ const CourseDetails = () => {
             Paid : <span>{price}</span>
           </h3>
 
-        <Link to={`/course/checkout/${id}`}> <button class="checkout-btn" >Checkout</button></Link>
+        <Link to={`/course/checkout/${id}`}> <button class="checkout-btn" >Purchase</button></Link>
         
 
           <div className="course-feature">
@@ -92,6 +93,17 @@ const CourseDetails = () => {
               {quiz}
             </span>
           </div>
+          
+          <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button className="checkout-btn" onClick={toPdf}>Generate Pdf</button>}
+      </Pdf>
+      <div ref={ref} className="mt-5">
+        <h1 className="h6 text-primary">Hello Students</h1>
+        <p className="text-muted">Here is our course details . if you want to take this course. so you can read requirments.</p>
+      </div>
+
+
+          
         </Col>
       </Row>
     </div>
