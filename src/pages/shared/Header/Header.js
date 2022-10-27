@@ -110,7 +110,7 @@ const Header = () => {
                 <Link to="/blog">Blog</Link>
                 <Link to="/faq">FAQ</Link>
               </Nav>
-              <Nav className="d-flex align-items-center">
+              <Nav className="d-flex align-items-lg-center">
                 <div className="ms-5 " >
                 {user?.uid && (
                   <img className="profile-pic"
@@ -135,6 +135,16 @@ const Header = () => {
                   </Overlay>
                 </>
                 <div onClick={ToggleData}> {!toggle ? <FaSun className="toggle-button"/> : <FaMoon className="toggle-button"/>} </div>
+
+                <div className="d-none d-sm-block d-lg-none">
+                    <Button
+                      variant="light"
+                      className="text-primary fe-bold px-3"
+                      onClick={handleLogOut}
+                    >
+                      Logout
+                    </Button>
+                  </div>
                
               </Nav>
             </Navbar.Collapse>
