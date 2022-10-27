@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import github from '../../../assets/icon/github.png';
+import google from '../../../assets/icon/google.png';
 import { AuthContext } from '../../../constext/UserContext';
+import './RegisterForm.css';
 
 const RegisterForm = () => {
    const [error, setError] = useState('')
+  const navigate = useNavigate();
    const {newUserCreate, userProfileUpdate} = useContext(AuthContext);
     
     const handleSubmitForm = event => {
@@ -23,7 +27,7 @@ const RegisterForm = () => {
         }
        newUserCreate(email, password)
        .then(result => {
-        console.log(result.user);
+        navigate('/')
         form.reset();
         handleUserProfileUpdate(profile);
        })
@@ -39,6 +43,11 @@ const RegisterForm = () => {
         .then()
         .catch(error => setError(error.message))
     }
+
+    const handleLoginWithIcon = () => {
+      console.log("i am clicked")
+    }
+    
 
     return (
        <div className="w-50 mx-auto mt-5 login-form">
@@ -80,6 +89,15 @@ const RegisterForm = () => {
           </Button>
           
         </Form>
+
+        <div className="direct-login d-flex align-items-center justify-content-center mt-4">
+          <div className="login-icon me-4" onClick={handleLoginWithIcon}>
+            <img src={google} alt="" className="img-fluid"/>
+          </div>
+          <div className="login-icon" onClick={handleLoginWithIcon}>
+            <img src={github} alt="" className="img-fluid"/>
+          </div>
+        </div>
        </div>
       );
 };
